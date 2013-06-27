@@ -8,16 +8,16 @@ db = PG.connect(:dbname => 'address_book',:host => 'localhost')
 @first = params[:name]
 @last = params[:last]
 @gender = params[:gender]
-@dtgd = params[:dtgd]
-@phone = params[:phone]
+@age = params[:age].to_i
+@phone = params[:phone].to_i
 
-sql ="insert into contacts (first, last, gender, dtgd, phone) values ('#{@first}', '#{@second}', '#{@gender}', #{@dtgd}, #{@phone})"
+sql ="insert into contacts (first, last, gender, age, phone) values ('#{@first}', '#{@second}', '#{@gender}', #{@age}, #{@phone})"
 db.exec(sql)
 
 db.close
 
 
-erb :form
+erb :address_book
 end
 
 
