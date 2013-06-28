@@ -3,6 +3,9 @@ require 'sinatra/reloader'
 require 'pry'
 require 'pg'
 
+
+# This get route will connect to the local host database connects to
+# a table of my choosing to insert address book information
 get '/' do
 db = PG.connect(:dbname => 'address_book',:host => 'localhost')
 @first = params[:name]
@@ -17,8 +20,8 @@ db.exec(sql)
 db.close
 
 
-erb :address_book
-end
+erb :address_book # the erb file that we are routing through has a simple
+end               # form which takes the input and stores the data
 
 
 post '/' do
