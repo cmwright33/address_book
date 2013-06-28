@@ -14,7 +14,7 @@ db = PG.connect(:dbname => 'address_book',:host => 'localhost')
 @age = params[:age].to_i
 @phone = params[:phone].to_i
 
-sql ="insert into contacts (first, last, gender, age, phone) values ('#{@first}', '#{@second}', '#{@gender}', #{@age}, #{@phone})"
+sql ="insert into contacts2 (first, last, gender, age, phone) values ('#{@first}', '#{@second}', '#{@gender}', #{@age}, #{@phone})"
 db.exec(sql)
 
 db.close
